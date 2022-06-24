@@ -42,8 +42,7 @@ namespace SoftwareMind2.Controllers
         {
             var user = HttpContext.User;
             var nameIdentifier = int.Parse(user.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
-            if (nameIdentifier != request.idUser) throw new Exception("provide your own userId");
-            var response = await _bookingService.CreateBooking(request);
+            var response = await _bookingService.CreateBooking(request, nameIdentifier);
             return CreatedAtAction(nameof(CreateBooking), response);
         }
 

@@ -11,7 +11,7 @@ namespace SoftwareMind2.Services.BookingService
         Task<List<SearchDesksByDateResponse>> SearchOccupiedDesks(DateTime startDate, DateTime endDate, int idLocation);
         Task<List<SearchDesksByDateResponse>> SearchFreeDesks(DateTime startDate, DateTime endDate, int idLocation);
 
-        Task<CreateBookingResponse> CreateBooking(CreateBookingRequest request);
+        Task<CreateBookingResponse> CreateBooking(CreateBookingRequest request, int idUser);
 
         Task ChangeDesk(int idBooking, int newDesk);
 

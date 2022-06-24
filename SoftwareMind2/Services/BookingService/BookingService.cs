@@ -78,7 +78,7 @@ namespace SoftwareMind2.Services.BookingService
             
         }
 
-        public async Task<CreateBookingResponse> CreateBooking(CreateBookingRequest request)
+        public async Task<CreateBookingResponse> CreateBooking(CreateBookingRequest request, int idUser)
         {
             if ((request.endDate - request.startDate).TotalDays > 7) throw new Exception("More than a week");
 
@@ -100,7 +100,7 @@ namespace SoftwareMind2.Services.BookingService
                 startDate = request.startDate,
                 endDate = request.endDate,
                 idDesk = request.idDesk,
-                idUser = request.idUser
+                idUser = idUser
 
             };
             await _context.Bookings.AddAsync(booking);
